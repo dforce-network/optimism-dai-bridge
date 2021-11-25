@@ -15,17 +15,23 @@
 
 pragma solidity >=0.7.6;
 
-import {OVM_CrossDomainEnabled} from "@eth-optimism/contracts/libraries/bridge/OVM_CrossDomainEnabled.sol";
+import {OVM_CrossDomainEnabled} from "../library/OVM_CrossDomainEnabled.sol";
+import "../library/Initializable.sol";
 
 // Receive xchain message from L1 counterpart and execute given spell
 
-contract L2GovernanceRelay is OVM_CrossDomainEnabled {
-  address public immutable l1GovernanceRelay;
+contract L2GovernanceRelay is Initializable, OVM_CrossDomainEnabled {
+  address public l1GovernanceRelay;
 
   constructor(address _l2CrossDomainMessenger, address _l1GovernanceRelay)
-    OVM_CrossDomainEnabled(_l2CrossDomainMessenger)
   {
+    initialize(_l2CrossDomainMessenger, _l1GovernanceRelay);
+  }
+
+  function initialize(address _l2CrossDomainMessenger, address _l1GovernanceRelay) public initializer {
     l1GovernanceRelay = _l1GovernanceRelay;
+
+    __OVM_CrossDomainEnabled_init(_l2CrossDomainMessenger);
   }
 
   /**

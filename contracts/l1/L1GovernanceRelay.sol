@@ -16,13 +16,14 @@
 
 pragma solidity >=0.7.6;
 
-import {OVM_CrossDomainEnabled} from "@eth-optimism/contracts/libraries/bridge/OVM_CrossDomainEnabled.sol";
+import {OVM_CrossDomainEnabled} from "../library/OVM_CrossDomainEnabled.sol";
 
 import "../l2/L2GovernanceRelay.sol";
+import "../library/Initializable.sol";
 
 // Relay a message from L1 to L2GovernanceRelay
 
-contract L1GovernanceRelay is OVM_CrossDomainEnabled {
+contract L1GovernanceRelay is Initializable, OVM_CrossDomainEnabled {
   // --- Auth ---
   mapping(address => uint256) public wards;
 
@@ -41,18 +42,23 @@ contract L1GovernanceRelay is OVM_CrossDomainEnabled {
     _;
   }
 
-  address public immutable l2GovernanceRelay;
+  address public l2GovernanceRelay;
 
   event Rely(address indexed usr);
   event Deny(address indexed usr);
 
   constructor(address _l2GovernanceRelay, address _l1messenger)
-    OVM_CrossDomainEnabled(_l1messenger)
   {
+    initialize(_l2GovernanceRelay, _l1messenger);
+  }
+
+  function initialize(address _l2GovernanceRelay, address _l1messenger) public initializer {
     wards[msg.sender] = 1;
     emit Rely(msg.sender);
 
     l2GovernanceRelay = _l2GovernanceRelay;
+
+    __OVM_CrossDomainEnabled_init(_l1messenger);
   }
 
   // Forward a call to be repeated on L2

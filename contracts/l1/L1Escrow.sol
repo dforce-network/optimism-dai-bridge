@@ -16,13 +16,15 @@
 
 pragma solidity >=0.7.6;
 
+import "../library/Initializable.sol";
+
 interface ApproveLike {
   function approve(address, uint256) external;
 }
 
 // Escrow funds on L1, manage approval rights
 
-contract L1Escrow {
+contract L1Escrow is Initializable {
   // --- Auth ---
   mapping(address => uint256) public wards;
 
@@ -47,6 +49,10 @@ contract L1Escrow {
   event Approve(address indexed token, address indexed spender, uint256 value);
 
   constructor() {
+    initialize();
+  }
+
+  function initialize() public initializer {
     wards[msg.sender] = 1;
     emit Rely(msg.sender);
   }
