@@ -60,7 +60,7 @@ contract L2USXTokenBridge is Initializable, iOVM_L2ERC20Bridge, OVM_CrossDomainE
   address public l1USXTokenBridge;
   address public l2msdController;
   uint256 public isOpen;
-  uint256 public totalMints;
+  uint256 public totalMint;
 
   event Closed();
 
@@ -89,7 +89,7 @@ contract L2USXTokenBridge is Initializable, iOVM_L2ERC20Bridge, OVM_CrossDomainE
     l1Token = _l1Token;
     l1USXTokenBridge = _l1USXTokenBridge;
     l2msdController = _l2msdController;
-    totalMints = 0;
+    totalMint = 0;
 
     __OVM_CrossDomainEnabled_init(_l2CrossDomainMessenger);
   }
@@ -135,7 +135,7 @@ contract L2USXTokenBridge is Initializable, iOVM_L2ERC20Bridge, OVM_CrossDomainE
     require(isOpen == 1, "L2USXTokenBridge/closed");
 
     Mintable(l2Token).burn(msg.sender, _amount);
-    totalMints = totalMints.sub(_amount);
+    totalMint = totalMint.sub(_amount);
 
     bytes memory message = abi.encodeWithSelector(
       iOVM_L1ERC20Bridge.finalizeERC20Withdrawal.selector,
@@ -164,12 +164,8 @@ contract L2USXTokenBridge is Initializable, iOVM_L2ERC20Bridge, OVM_CrossDomainE
     require(_l1Token == l1Token && _l2Token == l2Token, "L2USXTokenBridge/token-not-USX");
 
     Mintable(l2msdController).mintMSD(l2Token, _to, _amount);
-    totalMints = totalMints.add(_amount);
+    totalMint = totalMint.add(_amount);
 
     emit DepositFinalized(_l1Token, _l2Token, _from, _to, _amount, _data);
-  }
-
-  function totalMint() external view returns (uint256) {
-    return totalMints;
   }
 }
