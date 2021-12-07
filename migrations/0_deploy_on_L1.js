@@ -6,34 +6,34 @@ async function main() {
     let tx;
 
     // // Mainnet
-    // const l1USXContractAddress = "0x0a5e677a6a24b2f1a2bf4f3bffc443231d2fdec8";
-    // const l2USXContractAddress = "0x641441c631e2F909700d2f41FD87F0aA6A6b4EDb";
-    // const l1MessengerAddress = "0x72Ce9c846789fdB6fC1f34aC4AD25Dd9ef7031ef";
+    const l1USXContractAddress = "0x0a5e677a6a24b2f1a2bf4f3bffc443231d2fdec8";
+    const l2USXContractAddress = "0xbfD291DA8A403DAAF7e5E9DC1ec0aCEaCd4848B9";
+    const l1MessengerAddress = "0x25ace71c97B33Cc4729CF772ae268934F7ab5fA1";
     // const inboxAddress = "0x4dbd4fc535ac27206064b68ffcf827b0a60bab3f";
-    // let l2USXGatewayProxyAddress = "";
-    // let proxyAdminAddress = "";
-    // let escrowImplContractAddress = "";
-    // let escrowProxyContractAddress = "";
-    // let l1USXGatewayImplAddress = "";
-    // let l1USXGatewayProxyAddress = "";
-    // let l2GovernanceRelayAddress = "";
-    // let l1GovernanceRelayImplAddress = "";
-    // let l1GovernanceRelayProxyAddress = "";
+    let l2USXGatewayProxyAddress = "0xc76cbFbAfD41761279E3EDb23Fd831Ccb74D5D67";
+    let proxyAdminAddress = "0x4FF0455bcfBB5886607c078E0F43Efb5DE34DeF4";
+    let escrowImplContractAddress = "0x5f7CA155cd53f552e60f8D1B088D6e4CA5885c35";
+    let escrowProxyContractAddress = "0x40BE37096ce3b8A2E9eC002468Ab91071501C499";
+    let l1USXGatewayImplAddress = "0x1EE116B869eCc7cd13C629a8a2Ae39Fa361265CF";
+    let l1USXGatewayProxyAddress = "0xC5b1EC605738eF73a4EFc562274c1c0b6609cF59";
+    let l2GovernanceRelayAddress = "0xdEAD000000000000000042069420694206942069";
+    let l1GovernanceRelayImplAddress = "0xdEAD000000000000000042069420694206942069";
+    let l1GovernanceRelayProxyAddress = "0xdEAD000000000000000042069420694206942069";
     // Kovan
-    const l1USXContractAddress = "0xF76eAd4da04BbeB97d29F83e2Ec3a621d0FB3c6e";
-    const l2USXContractAddress = "0xab7020476D814C52629ff2e4cebC7A8cdC04F18E";
-    const l1MessengerAddress = "0x4361d0F75A0186C05f971c566dC6bEa5957483fD";
-    // const inboxAddress = "0x4dbd4fc535ac27206064b68ffcf827b0a60bab3f";
-    let l2USXGatewayProxyAddress = "0xB4d37826b14Cd3CB7257A2A5094507d701fe715f";
+    // const l1USXContractAddress = "0xF76eAd4da04BbeB97d29F83e2Ec3a621d0FB3c6e";
+    // const l2USXContractAddress = "0xab7020476D814C52629ff2e4cebC7A8cdC04F18E";
+    // const l1MessengerAddress = "0x4361d0F75A0186C05f971c566dC6bEa5957483fD";
+    // // const inboxAddress = "0x4dbd4fc535ac27206064b68ffcf827b0a60bab3f";
+    // let l2USXGatewayProxyAddress = "0xB4d37826b14Cd3CB7257A2A5094507d701fe715f";
 
-    let proxyAdminAddress = "0xca64293ed5C3F3CdF110184d6E8fDDBfb0fa1728";
-    let escrowImplContractAddress = "0x9903Cd2f3d21ff9C85e12590c802B4F852dD44f8";
-    let escrowProxyContractAddress = "0x024Fa49a548e3496A0468b0f71cD3A4514B5D192";
-    let l1USXGatewayImplAddress = "0xae71BB4a2A10D1a252A057c316225b0BC22e2392";
-    let l1USXGatewayProxyAddress = "0x40E862341b2416345F02c41Ac70df08525150dC7";
-    let l2GovernanceRelayAddress = "0x57f76F87CE81638561070389f16D7833080c11a8";
-    let l1GovernanceRelayImplAddress = "0xfa901Da254c0964987B8e7FF814dCF01e9Ed93f7";
-    let l1GovernanceRelayProxyAddress = "0xE5ecB56521B4BF6E38662B2BD85143F5c56cAE90";
+    // let proxyAdminAddress = "0xca64293ed5C3F3CdF110184d6E8fDDBfb0fa1728";
+    // let escrowImplContractAddress = "0x9903Cd2f3d21ff9C85e12590c802B4F852dD44f8";
+    // let escrowProxyContractAddress = "0x024Fa49a548e3496A0468b0f71cD3A4514B5D192";
+    // let l1USXGatewayImplAddress = "0xae71BB4a2A10D1a252A057c316225b0BC22e2392";
+    // let l1USXGatewayProxyAddress = "0x40E862341b2416345F02c41Ac70df08525150dC7";
+    // let l2GovernanceRelayAddress = "0x57f76F87CE81638561070389f16D7833080c11a8";
+    // let l1GovernanceRelayImplAddress = "0xfa901Da254c0964987B8e7FF814dCF01e9Ed93f7";
+    // let l1GovernanceRelayProxyAddress = "0xE5ecB56521B4BF6E38662B2BD85143F5c56cAE90";
 
     // 'web3Provider' is a remix global variable object
     const signer = new ethers.providers.Web3Provider(web3Provider).getSigner();

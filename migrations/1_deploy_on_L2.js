@@ -7,30 +7,31 @@ async function main() {
     const deployerAddress = "";
 
     // // Optimism
-    // const l1USXContractAddress = "0x0a5e677a6a24b2f1a2bf4f3bffc443231d2fdec8";
-    // const l2USXContractAddress = "0x641441c631e2F909700d2f41FD87F0aA6A6b4EDb";
-    // const l2msdControllerAddress = "0x38a5585d347E8DFc3965C1914498EAfbDeD7c5Ff";
-    // const l2RouterAddress = "0x5288c571Fd7aD117beA99bF60FE0846C4E84F933";
-    // let l1USXGatewayProxyAddress = "";
-    // let proxyAdminAddress = "";
-    // let l2USXGatewayImplAddress = "";
-    // let l2USXGatewayProxyAddress = "";
-    // let l1GovernanceRelayAddress = "";
-    // let l2GovernanceRelayImplAddress = "";
-    // let l2GovernanceRelayProxyAddress = "";
-    // Optimism Test
-    const l1USXContractAddress = "0xF76eAd4da04BbeB97d29F83e2Ec3a621d0FB3c6e";
-    const l2USXContractAddress = "0xab7020476D814C52629ff2e4cebC7A8cdC04F18E";
-    const l2msdControllerAddress = "0x16E7F5705967B2153473b8411D3faFe257262330";
+    const l1USXContractAddress = "0x0a5e677a6a24b2f1a2bf4f3bffc443231d2fdec8";
+    const l2USXContractAddress = "0xbfD291DA8A403DAAF7e5E9DC1ec0aCEaCd4848B9";
+    const l2msdControllerAddress = "0x9E8B68E17441413b26C2f18e741EAba69894767c";
     // const l2RouterAddress = "0x5288c571Fd7aD117beA99bF60FE0846C4E84F933";
     let l2CrossDomainMessengerAddress = "0x4200000000000000000000000000000000000007";
-    let l1USXGatewayProxyAddress = "0x40E862341b2416345F02c41Ac70df08525150dC7";
-    let proxyAdminAddress = "0x5c3712FAa40c1a9C00481bAb0EE7b68C03A7855C";
-    let l2USXGatewayImplAddress = "0x512c242dcBe915ebaD24f9BDcdBBcEFC3dCa2117";
-    let l2USXGatewayProxyAddress = "0xB4d37826b14Cd3CB7257A2A5094507d701fe715f";
-    let l1GovernanceRelayAddress = "0xE5ecB56521B4BF6E38662B2BD85143F5c56cAE90";
-    let l2GovernanceRelayImplAddress = "0x29bdd4E48643Fd23BB6944D7252e5b696f5f50A6";
-    let l2GovernanceRelayProxyAddress = "0x57f76F87CE81638561070389f16D7833080c11a8";
+    let l1USXGatewayProxyAddress = "0xC5b1EC605738eF73a4EFc562274c1c0b6609cF59";
+    let proxyAdminAddress = "0x1C4d5eCFBf2AF57251f20a524D0f0c1b4f6ED1C9";
+    let l2USXGatewayImplAddress = "0x0F18940dB877D3fd173AF087349Ee87B853AA029";
+    let l2USXGatewayProxyAddress = "0xc76cbFbAfD41761279E3EDb23Fd831Ccb74D5D67";
+    let l1GovernanceRelayAddress = "0xdEAD000000000000000042069420694206942069";
+    let l2GovernanceRelayImplAddress = "0xdEAD000000000000000042069420694206942069";
+    let l2GovernanceRelayProxyAddress = "0xdEAD000000000000000042069420694206942069";
+    // Optimism Test
+    // const l1USXContractAddress = "0xF76eAd4da04BbeB97d29F83e2Ec3a621d0FB3c6e";
+    // const l2USXContractAddress = "0xab7020476D814C52629ff2e4cebC7A8cdC04F18E";
+    // const l2msdControllerAddress = "0x16E7F5705967B2153473b8411D3faFe257262330";
+    // // const l2RouterAddress = "0x5288c571Fd7aD117beA99bF60FE0846C4E84F933";
+    // let l2CrossDomainMessengerAddress = "0x4200000000000000000000000000000000000007";
+    // let l1USXGatewayProxyAddress = "0x40E862341b2416345F02c41Ac70df08525150dC7";
+    // let proxyAdminAddress = "0x5c3712FAa40c1a9C00481bAb0EE7b68C03A7855C";
+    // let l2USXGatewayImplAddress = "0x512c242dcBe915ebaD24f9BDcdBBcEFC3dCa2117";
+    // let l2USXGatewayProxyAddress = "0xB4d37826b14Cd3CB7257A2A5094507d701fe715f";
+    // let l1GovernanceRelayAddress = "0xE5ecB56521B4BF6E38662B2BD85143F5c56cAE90";
+    // let l2GovernanceRelayImplAddress = "0x29bdd4E48643Fd23BB6944D7252e5b696f5f50A6";
+    // let l2GovernanceRelayProxyAddress = "0x57f76F87CE81638561070389f16D7833080c11a8";
 
     // 'web3Provider' is a remix global variable object
     const signer = new ethers.providers.Web3Provider(web3Provider).getSigner();
