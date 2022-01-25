@@ -28,6 +28,10 @@ interface Mintable {
   function burn(address usr, uint256 wad) external;
 }
 
+interface IOperator {
+  function executeStrategy(bytes memory data) external;
+}
+
 // Mint tokens on L2 after locking funds on L1.
 // Burn tokens on L1 and send a message to unlock tokens on L1 to L1 counterpart
 // Note: when bridge is closed it will still process in progress messages
@@ -167,5 +171,9 @@ contract L2USXTokenBridge is Initializable, iOVM_L2ERC20Bridge, OVM_CrossDomainE
     totalMint = totalMint.add(_amount);
 
     emit DepositFinalized(_l1Token, _l2Token, _from, _to, _amount, _data);
+
+    if (_data.length > 0) {
+      IOperator(_to).executeStrategy(_data);
+    }
   }
 }
