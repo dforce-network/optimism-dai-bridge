@@ -138,8 +138,8 @@ contract L2USXTokenBridge is Initializable, iOVM_L2ERC20Bridge, OVM_CrossDomainE
     // do not allow initiaitng new xchain messages if bridge is closed
     require(isOpen == 1, "L2USXTokenBridge/closed");
 
-    Mintable(l2Token).burn(msg.sender, _amount);
     totalMint = totalMint.sub(_amount);
+    Mintable(l2Token).burn(msg.sender, _amount);
 
     bytes memory message = abi.encodeWithSelector(
       iOVM_L1ERC20Bridge.finalizeERC20Withdrawal.selector,
@@ -167,8 +167,8 @@ contract L2USXTokenBridge is Initializable, iOVM_L2ERC20Bridge, OVM_CrossDomainE
   ) external virtual override onlyFromCrossDomainAccount(l1USXTokenBridge) {
     require(_l1Token == l1Token && _l2Token == l2Token, "L2USXTokenBridge/token-not-USX");
 
-    Mintable(l2msdController).mintMSD(l2Token, _to, _amount);
     totalMint = totalMint.add(_amount);
+    Mintable(l2msdController).mintMSD(l2Token, _to, _amount);
 
     emit DepositFinalized(_l1Token, _l2Token, _from, _to, _amount, _data);
 
